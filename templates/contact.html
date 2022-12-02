@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<main class="page-content">
+    <section class="section-title section-title-left section-title-left-3" data-title="contact us">
+      <div class="shell shell-wide">
+        <div class="page-counter page-counter-bottom-3"><img class="img-responsive center-block" src="{% static 'images/contacts-01.png' %}" alt=""></div>
+        <h4 class="offset-top-20">Contact form</h4>
+        <!-- RD Mailform-->
+        <form class="offset-top-40 range range-xs-center rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post">
+          {% csrf_token %}
+          <div class="cell-md-10">
+            <div class="range">
+              <div class="cell-md-4">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Name</label>
+                  <input class="form-control" id="contact-name" type="text" name="name" data-constraints="@Required">
+                </div>
+              </div>
+              <div class="cell-md-4 offset-top-30 offset-md-top-0">
+                <div class="form-group">
+                  <label class="form-label" for="contact-phone">Phone</label>
+                  <input class="form-control" id="contact-phone" type="text" name="phone" data-constraints="@Numeric @Required">
+                </div>
+              </div>
+              <div class="cell-md-4 offset-top-30 offset-md-top-0">
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Email</label>
+                  <input class="form-control" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
+                </div>
+              </div>
+              <div class="cell-md-12 offset-top-30">
+                <div class="form-group">
+                  <label class="form-label" for="contact-message">Message</label>
+                  <textarea class="form-control" id="contact-message" name="message" data-constraints="@Required"></textarea>
+                </div>
+                <div class="text-center offset-top-65">
+                  <button class="btn btn-default" type="submit">send message</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+{% endblock %}

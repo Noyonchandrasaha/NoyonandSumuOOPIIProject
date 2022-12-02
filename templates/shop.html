@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<main class="page-content">
+    <section class="section-title section-title-left section-title-left-3" data-title="contact us">
+      <div class="shell shell-wide">
+        </p><a class="btn btn-default" href="{% url 'sellpost' %}">Post for sale</a>
+      </div>
+    </section>
+    <div class="container">
+      <h1 class="text-center mt-5">Our available Selling Pets</h1>
+      <div>
+          <table class="table mt-5">
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Contact</th>
+                  <th scope="col">Address</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for i in Sellpost %}
+                <tr>                  
+                  <td>{{i.id}}</td>
+                  <td>{{i.category}}</td>
+                  <td>{{i.pirce}}</td>
+                  <td>{{i.age}}</td>
+                  <td>{{i.description}}</td>
+                  <td>{{i.name}}</td>
+                  <td>{{i.contact}}</td>
+                  <td>{{i.address}}</td>
+               
+                </tr> 
+              {% endfor %}               
+              </tbody>
+            </table>
+      </div>
+    </div>
+  
+</main>
+
+    
+{% endblock %}
